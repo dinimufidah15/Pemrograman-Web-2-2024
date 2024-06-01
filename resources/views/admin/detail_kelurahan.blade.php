@@ -29,7 +29,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>hallo pasien!!</h1>
+            <h1>Blank Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -59,37 +59,24 @@
           </div>
         </div>
         <div class="card-body">
-        <a href="{{ url('admin/pasien/create') }}" class="btn btn-primary">+ tambah pasien</a>
-         <table class="table table-bordered">
-            <tr class="table-success">
-                <th>id</th>
-                <th>kode</th>
-                <th>nama</th>
-                <th>tempat lahir</th>
-                <th>tanggal lahir</th>
-                <th>gender</th>
-                <th>email</th>
-                <th>alamat</th>
-                <th>aksi</th>
-
-
-            </tr>
-            @foreach ($list_pasien as $pasien)
-               <tr>
-                <td>{{ $pasien->id }}</td>
-                <td>{{ $pasien->kode }}</td>
-                <td>{{ $pasien->nama }}</td>
-                <td>{{ $pasien->tmp_lahir }}</td>
-                <td>{{ $pasien->tgl_lahir }}</td>
-                <td>{{ $pasien->gender }}</td>
-                <td>{{ $pasien->email }}</td>
-                <td>{{ $pasien->alamat }}</td>
-                <td><a href="{{ url('admin/pasien/show', $pasien->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
-                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
-                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
-               </tr>
-            @endforeach
-         </table>
+            <table class="table table-bordered">
+                <tr class="table-succes">
+                    <th>NO</th>
+                    <th>id</th>
+                    <th>Nama kelurahan</th>
+                    <th>Nama kecamatan</th>
+                    <th>data dibuat pada</th>
+                    <th>data diupdate pada</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>{{ $kelurahan->id }}</td>
+                    <td>{{ $kelurahan->nama }}</td>
+                    <td>{{ $kelurahan->nama_kecamatan }}</td>
+                    <td>{{ $kelurahan->created_at }}</td>
+                    <td>{{ $kelurahan->updated_at }}</td>
+                </tr>
+                </table>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

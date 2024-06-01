@@ -29,7 +29,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>hallo pasien!!</h1>
+            <h1>Blank Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -59,37 +59,65 @@
           </div>
         </div>
         <div class="card-body">
-        <a href="{{ url('admin/pasien/create') }}" class="btn btn-primary">+ tambah pasien</a>
-         <table class="table table-bordered">
-            <tr class="table-success">
-                <th>id</th>
-                <th>kode</th>
-                <th>nama</th>
-                <th>tempat lahir</th>
-                <th>tanggal lahir</th>
-                <th>gender</th>
-                <th>email</th>
-                <th>alamat</th>
-                <th>aksi</th>
-
-
-            </tr>
-            @foreach ($list_pasien as $pasien)
-               <tr>
-                <td>{{ $pasien->id }}</td>
-                <td>{{ $pasien->kode }}</td>
-                <td>{{ $pasien->nama }}</td>
-                <td>{{ $pasien->tmp_lahir }}</td>
-                <td>{{ $pasien->tgl_lahir }}</td>
-                <td>{{ $pasien->gender }}</td>
-                <td>{{ $pasien->email }}</td>
-                <td>{{ $pasien->alamat }}</td>
-                <td><a href="{{ url('admin/pasien/show', $pasien->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
-                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
-                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
-               </tr>
-            @endforeach
-         </table>
+        <form class="forms-sample" action="{{ url ('admin/pasien/store') }}" method="POST">
+          @csrf
+          <div class="form-group row">
+              <label for="kode" class="col-sm-4 col-form-label">kode</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="kode" name="kode"
+                      placeholder="Masukan kode anda">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="nama" class="col-sm-4 col-form-label">Nama</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="nama" name="nama"
+                      placeholder="Masukkan Nama anda">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="tmp_lahir" class="col-sm-4 col-form-label">tempat lahir</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="tmp_lahir" name="tmp_lahir"
+                      placeholder="Masukkan tempat lahir anda">
+              </div>
+            </div>
+          <div class="form-group row">
+              <label for="tgl_lahir" class="col-sm-4 col-form-label">tanggal lahir</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir"
+                      placeholder="Masukkan tanggal lahir anda">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="gender" class="col-sm-4 col-form-label">gender</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="gender" name="gender"
+                      placeholder="Masukkan gender anda">
+              </div>
+            </div>
+          <div class="form-group row">
+              <label for="email" class="col-sm-4 col-form-label">email</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="email" name="email"
+                      placeholder="Masukkan email anda">
+              </div>
+           </div>
+          <div class="form-group row">
+              <label for="alamat" class="col-sm-4 col-form-label">alamat</label>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control" id="alamat" name="alamat"
+                      placeholder="Masukkan alamat anda">
+              </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8">
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                  <button type="reset" class="btn btn-warning">Reset</button>
+              </div>
+          </div>
+      </form>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

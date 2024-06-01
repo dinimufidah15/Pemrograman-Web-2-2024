@@ -59,17 +59,23 @@
           </div>
         </div>
         <div class="card-body">
+          <a href="{{ url('admin/kelurahan/create') }}" class="btn btn-primary">+ tambah kelurahan</a>
          <table class="table table-bordered">
             <tr class="table-success">
                 <th>id</th>
                 <th>nama kelurahan</th>
                 <th>nama kecamatan</th>
+                <th>aksi</th>
+
             </tr>
             @foreach ($list_kelurahan as $kelurahan)
                <tr>
                 <td>{{ $kelurahan->id }}</td>
                 <td>{{ $kelurahan->nama }}</td>
                 <td>{{ $kelurahan->nama_kecamatan }}</td>
+                <td><a href="{{ url('admin/kelurahan/show', $kelurahan->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
+                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
+                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
                </tr>
             @endforeach
          </table>
