@@ -81,8 +81,8 @@
                 <td>{{ $pasien->gender }}</td>
                 <td>{{ $pasien->email }}</td>
                 <td>{{ $pasien->alamat }}</td>
-                    <td>{{ $pasien->created_at }}</td>
-                    <td>{{ $pasien->updated_at }}</td>
+                <td>{{ $pasien->created_at }}</td>
+                <td>{{ $pasien->updated_at }}</td>
                 </tr>
                 </table>
         </div>

@@ -59,6 +59,14 @@
           </div>
         </div>
         <div class="card-body">
+          @if (session('pesan'))
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ session('pesan') }}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          @endif
           <a href="{{ url('admin/kelurahan/create') }}" class="btn btn-primary">+ tambah kelurahan</a>
          <table class="table table-bordered">
             <tr class="table-success">
@@ -73,9 +81,14 @@
                 <td>{{ $kelurahan->id }}</td>
                 <td>{{ $kelurahan->nama }}</td>
                 <td>{{ $kelurahan->nama_kecamatan }}</td>
-                <td><a href="{{ url('admin/kelurahan/show', $kelurahan->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
-                        <a href="#" class="text-warning"><i class="far fa-edit"></i> Edit</a> |
-                        <a href="#" class="text-danger"><i class="far fa-trash-alt"></i> Hapus</a>
+                <td>
+                <a href="{{ url('admin/kelurahan/show', $kelurahan->id) }}" class="text-primary"><i class="far fa-eye"></i> Lihat</a> |
+                <a href="{{ url('admin/kelurahan/edit', $kelurahan->id) }}" class="text-primary"><i class="far fa-eye"></i> Edit</a> |
+                        <form action="{{ url ('admin/kelurahan/destroy', $kelurahan->id) }}" method="post" class="d-inline">
+                          @csrf
+                          @method('delete')
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('apakah ingin menghapus data kelurahan?')"><i class="far fa-trash-alt"></i>hapus</button>
+                        </form>
                </tr>
             @endforeach
          </table>
