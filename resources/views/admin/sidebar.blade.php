@@ -1,3 +1,5 @@
+@use(App\Models\User)
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
@@ -12,9 +14,12 @@
         <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
+        @auth
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <span class="text-primary">{{ Auth::user()->role }}</span>
         </div>
+        @endauth
       </div>
 
       <!-- SidebarSearch Form -->
@@ -43,16 +48,20 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @auth
+              @if (Auth::user()->role == User::ROLE_ADMIN)
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="{{ url('admin/pasien')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>pasien</p>
                 </a>
               </li>
+                @endif
+              @endauth
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="{{ url('admin/kelurahan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>kelurahan</p>
                 </a>
               </li>
               <li class="nav-item">

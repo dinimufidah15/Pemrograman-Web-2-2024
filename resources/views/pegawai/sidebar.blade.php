@@ -12,9 +12,12 @@
         <div class="image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
+        @auth
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <span class="text-primary">{{ Auth::user()->role }}</span>
         </div>
+        @endauth
       </div>
 
       <!-- SidebarSearch Form -->
